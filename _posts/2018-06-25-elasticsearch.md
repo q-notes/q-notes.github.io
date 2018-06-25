@@ -4,16 +4,21 @@ title:  "elasticsearch"
 date:   2018-06-25 19:38:00 +0700
 categories: elasticsearch
 ---
-
++ delete index
 ```sh
-# delete index
 $ curl -XDELETE 'localhost:9200/twitter?pretty'
+```
 
-# check if the index exists or not
++ check if index exists
+```sh
 $ curl -XHEAD 'localhost:9200/twitter?pretty'
+```
 
-# copy index
-$ curl -XPOST 'localhost:9200/_reindex?pretty' -H 'Content-Type: application/json' -d'
++ copy index
+```sh
+$ curl -XPOST 'localhost:9200/_reindex?pretty' \
+       -H 'Content-Type: application/json' \
+       -d'
 {
   "source": {
     "index": "tw"
@@ -25,18 +30,25 @@ $ curl -XPOST 'localhost:9200/_reindex?pretty' -H 'Content-Type: application/jso
     "inline": "ctx._id = ctx._source.id"
   }
 }'
+```
 
-# update refresh_interval
-# https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-update-settings.html#bulk
-$ curl -XPUT 'localhost:9200/twitter/_settings?pretty' -H 'Content-Type: application/json' -d'
++ update [refresh_interval](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-update-settings.html#bulk)
+```sh
+$ curl -XPUT 'localhost:9200/twitter/_settings?pretty' \
+       -H 'Content-Type: application/json' \
+       -d'
 {
     "index" : {
         "refresh_interval" : "60s"
     }
 }'
+```
 
-# copy_to: title, content -> text fields
-$ curl -XPUT 'localhost:9200/web?pretty' -H 'Content-Type: application/json' -d'
++ copy_to: title, content -> text fields
+```sh
+$ curl -XPUT 'localhost:9200/web?pretty' \
+       -H 'Content-Type: application/json' \
+       -d'
 {
   "mappings": {
     "docs": {
@@ -56,10 +68,13 @@ $ curl -XPUT 'localhost:9200/web?pretty' -H 'Content-Type: application/json' -d'
     }
   }
 }'
+```
 
-# specific date fields
-# https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-date-format.html
-$ curl -XPUT 'localhost:9200/web?pretty' -H 'Content-Type: application/json' -d'
++ [specific date fields](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-date-format.html)
+```sh
+$ curl -XPUT 'localhost:9200/web?pretty' \
+       -H 'Content-Type: application/json' \
+       -d '
 {
   "mappings": {
     "docs": {
