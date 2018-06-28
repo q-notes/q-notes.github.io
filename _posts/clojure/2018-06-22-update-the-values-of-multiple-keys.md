@@ -2,7 +2,7 @@
 layout: post
 title:  "update the values of multiple keys"
 date:   2018-06-22 14:36:00 +0700
-categories: [ clojure, map ]
+tags:   clojure
 ---
 
 ```clj

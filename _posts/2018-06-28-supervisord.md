@@ -2,7 +2,7 @@
 layout: post
 title:  "supervisord"
 date:   2018-06-28 11:54:00 +0700
-tags: devops supervisord
+tags:   devops supervisord
 ---
 
 + Reloading configuration changes

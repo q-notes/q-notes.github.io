@@ -2,7 +2,7 @@
 layout: post
 title:  "http static server one-liners"
 date:   2018-06-22 22:15:00 +0700
-categories: web http static server
+tags:   web http one-liners
 ---
 
 + Python 2

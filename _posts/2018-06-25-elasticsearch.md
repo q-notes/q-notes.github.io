@@ -2,7 +2,7 @@
 layout: post
 title:  "elasticsearch"
 date:   2018-06-25 19:38:00 +0700
-categories: elasticsearch
+tags:   elasticsearch
 ---
 + delete index
 ```sh

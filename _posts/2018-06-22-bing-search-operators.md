@@ -2,7 +2,7 @@
 layout: post
 title:  "Bing Search Operators"
 date:   2018-06-22 14:57:00 +0700
-tags: bing-search api
+tags:   bing-search api
 ---
 
 + Single Site Example

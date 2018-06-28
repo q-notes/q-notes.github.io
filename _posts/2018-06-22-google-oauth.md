@@ -2,7 +2,7 @@
 layout: post
 title:  "bash script for getting a Google Oauth2 access token"
 date:   2018-06-22 16:08:00 +0700
-categories: oauth2 google
+tags:   oauth2 google
 ---
 A project from https://console.developers.google.com/ has:
   + client-id
