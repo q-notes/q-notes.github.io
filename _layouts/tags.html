@@ -3,12 +3,23 @@ layout: page
 ---
 <p>
     {% for tag in site.tags %}
-    <!-- Here's a hack to generate a "tag cloud" where the size of
-    the word is directly proportional to the number of posts with
-    that tag. -->
-    <a href="/tags/{{ tag[0] }}.html" 
+    <a href="/tags/tag#{{ tag[0] }}"
     style="font-size: {{ tag[1] | size | times: 2 | plus: 10 }}px">
         {{ tag[0] }} | 
     </a>
     {% endfor %}
 </p>
+
+{% for tag in site.tags %}
+    <h2 id="{{ tag[0] }}">{{ tag[0] }}</h2>
+
+    <ul>
+        {% for post in site.posts %}
+            {% if post.tags contains tag[0] %}
+                <li>
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endfor %}
