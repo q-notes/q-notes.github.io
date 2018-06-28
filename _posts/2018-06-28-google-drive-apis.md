@@ -2,7 +2,7 @@
 layout: post
 title:  "Google Drive APIs"
 date:   2018-06-28 11:00:00 +0700
-categories: api google drive
+tags: google-drive api
 ---
 
 ### Download Files
