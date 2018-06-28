@@ -6,6 +6,7 @@ categories: devops supervisord
 ---
 
 + Reloading configuration changes
+
 ```sh
 # restart application without making configuration changes available
 $ supervisorctl restart <name>
