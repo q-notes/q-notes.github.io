@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "reload a multimethod in Clojure"
+title:  "reload a multimethod in Clojure REPL"
 date:   2018-06-28 23:30:00 +0700
-tags:   clojure multimethod
+tags:   clojure multimethod repl
 ---
 
 ```clj
