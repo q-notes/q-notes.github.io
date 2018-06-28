@@ -25,3 +25,14 @@ curl -X POST \
      -d 'client_id=[Client Id]&client_secret=[Secret]&refresh_token=[Refresh token]&grant_type=refresh_token' \
      https://accounts.google.com/o/oauth2/token
 ```
+
+clj code:
+```clj
+(-> "https://www.googleapis.com/oauth2/v4/token"
+    (http/post {:form-params {:refresh_token refresh-token
+                              :client_id     client-id
+                              :client_secret client-secret
+                              :grant_type    "refresh_token"}
+                :as          :json})
+    (get-in [:body :access_token]))
+```
