@@ -3,7 +3,7 @@ layout: page
 ---
 <p>
     {% for tag in site.tags %}
-    <a href="/tags/tag#{{ tag[0] }}"
+    <a href="/tags#{{ tag[0] }}"
     style="font-size: {{ tag[1] | size | times: 2 | plus: 10 }}px">
         {{ tag[0] }} | 
     </a>
