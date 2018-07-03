@@ -2,7 +2,7 @@
 layout: post
 title:  "stack & queue"
 date:   2018-06-28 20:51:00 +0700
-tags:   algorithms stack queue clojure java
+tags:   algorithms stack queue clojure java rebol red
 ---
 
 ### Stack
@@ -42,6 +42,17 @@ st.peek(); //=> 2, st=[1, 2]
 (conj st 4) ;=> (4 1 2 3)
 ```
 
+- Red/Rebol3
+
+```red
+data: make block! 10
+append data 1  ;== [1]
+append data 2  ;== [1 2]
+append data 3  ;== [1 2 3]
+take/last data ;== 3
+data           ;== [1 2]
+```
+
 ### Queue
 
 Add last, remove first impl:
@@ -68,4 +79,15 @@ q.peek(); //=> 2, q=[2, 3]
 (peek q)   ;=> 1
 (pop q)    ;=> <-(2 3)-<
 (conj q 4) ;=> <-(1 2 3 4)-<
+```
+
+- Red/Rebol3
+
+```red
+data: make block! 10
+append data 1 ;== [1]
+append data 2 ;== [1 2]
+append data 3 ;== [1 2 3]
+take data     ;== 1
+data          ;== [2 3]
 ```
