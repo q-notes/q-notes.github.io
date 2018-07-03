@@ -17,6 +17,7 @@ tags:   learning rebol red
   + [REBOL 3 functions](http://www.rebol.com/r3/docs/functions.html)
   + [REBOL 3 datatypes](http://www.rebol.com/r3/docs/datatypes.html)
   + [Red by Example](http://www.red-by-example.org/)
+  + [Red/System Language Specification](https://static.red-lang.org/red-system-specs.html)
 
 - Parse
   + [Red Parse](https://www.red-lang.org/2013/11/041-introducing-parse.html)
