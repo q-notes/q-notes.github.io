@@ -15,6 +15,3 @@ tags:   learning rebol red
   + [REBOL 3 Quick Reference Card](http://www.rebol.com/docs/reference.html)
   + [REBOL 3 functions](http://www.rebol.com/r3/docs/functions.html)
   + [Red by Example](http://www.red-by-example.org/)
-
-- Parse
-  + [Red Parse](https://www.red-lang.org/2013/11/041-introducing-parse.html)
