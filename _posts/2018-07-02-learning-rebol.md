@@ -10,6 +10,8 @@ tags:   learning rebol red
 
 - [REBOL 3 concepts](http://www.rebol.com/r3/docs/concepts.html)
 
+- [Helpin'Red](http://helpin.red/)
+
 - Reference
   + [REBOL 2 functions](http://www.rebol.com/docs/dictionary.html)
   + [REBOL 3 Quick Reference Card](http://www.rebol.com/docs/reference.html)

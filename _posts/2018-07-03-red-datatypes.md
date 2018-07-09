@@ -18,26 +18,34 @@ tags:   red rebol datatypes
 ![https]({{ "/assets/red-datatypes.png" | absolute_url }})
 
 ### Values
-- Numbers `1234 -432 3.1415 1.23E12`
-- Times `12:34 20:05:32 0:25.345 12:35PM`
-- Dates `20-Apr-1998 20/Apr/1998`
-- Money `$12.34 USD$12.34`
-- Tuples `2.3.0.3.1 255.255.0`
-- Strings
+- none! `none`
+- logic! `true` `false`
+- string!
 ```
 "Here is a single-line string"
+```
+```
 {Here is a multiline string that
 contains a "quoted" string.}
 ```
 Special characters (escapes) within strings are indicated with the caret character (^).
-- Chars `#"a" "^(null)" #"^(tab)"`
-- Tags `<title> </body>`
-- Email `info@rebol.com`
-- URLs `http://www.rebol.com`
-- Filenames `%images/photo.jpg`
-- Pairs `100x50`
-- Issues `#707-467-8000`
-- Binary `#{42652061205245424F4C}`
+
+- char! `#"a"` `"^(null)"` `#"^(tab)"`
+- integer! `123` `-432`  
+- float! `3.1415` `1.23E12`
+- path! `a/2`
+- time! `12:34` `20:05:32` `0:25.345` `12:35PM`
+- date! `20-Apr-1998` `20/Apr/1998`
+- point!/pair! `100x50`
+- percent! `11.2%`
+- money! `$12.34` `USD$12.34`
+- tuple! `2.3.0.3.1` `255.255.0`
+- issue! `#707-467-8000`
+- file! `%myfile.txt`
+- url! `http://www.rebol.com`
+- email! `info@rebol.com`
+- tag! `<title>` `</body>`
+- binary! `#{42652061205245424F4C}`
 
 ### Words
 
