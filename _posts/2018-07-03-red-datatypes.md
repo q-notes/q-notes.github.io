@@ -51,6 +51,44 @@ Special characters (escapes) within strings are indicated with the caret charact
 ### Blocks
 `[white red green blue]`
 
+### Vector
+A `vector!` is a high-performance `series!` of items.  
+The items in a `vector!` must all have the same type (unlike a `block!`).
+
+The allowable item types are: `integer!` `float!` `char!` `percent!`
+
+Vectors of `string!` are not allowed.
+
+```
+v1: make vector! [7 13 42 108]
+vector? v1       ;== true
+
+v1 +2 ;== make vector! [9 15 44 110]
+v1 *4 ;== make vector! [36 60 176 440]
+v2: make vector! [1 2 3 4]
+v1 + v2      ;== make vector! [37 62 179 444]
+```
+
+### Hash
+When the key values are simple types, they get hashed, which results in a fast value lookup.
+
+```
+list: make hash! [a 123 "hello" b c 789]
+list/c         ;== 789
+find list 'b   ;== make hash! [b c 789]
+select list 'c ;== 789
+```
+
+### Map
+```
+p: #(a: 3 b: 4 c: 5)
+p/a           ;== 3
+select p 'a   ;== 3
+put p 'd 6    ;== 6
+put p 'c none ; delete key c and its value 
+probe p       ;== #(a: 3 b: 4 d: 6)
+
+```
 - Ref
   + [REBOL 2 datatypes](http://www.rebol.com/docs/core23/rebolcore-16.html)
   + [REBOL 3 datatypes](http://www.rebol.com/r3/docs/datatypes.html)
