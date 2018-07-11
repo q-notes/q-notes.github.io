@@ -2,7 +2,7 @@
 layout: post
 title:  "apply fn to all value of a map"
 date:   2018-06-22 14:30:00 +0700
-tags:   clojure
+tags:   clojure specter
 ---
 
 ```clj
