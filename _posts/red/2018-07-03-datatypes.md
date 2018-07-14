@@ -1,7 +1,8 @@
 ---
 layout: post
-title:  "Red datatypes"
+title:  "datatypes"
 date:   2018-07-03 21:23:00 +0700
+category: red
 tags:   red rebol datatypes
 ---
 

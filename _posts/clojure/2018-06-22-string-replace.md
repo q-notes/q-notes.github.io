@@ -1,7 +1,8 @@
 ---
 layout: post
-title:  "clojure.string/replace"
+title:  "string replace"
 date:   2018-06-22 14:08:00 +0700
+category: clojure
 tags:   clojure string
 ---
 

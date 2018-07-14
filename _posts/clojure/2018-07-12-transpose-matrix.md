@@ -2,6 +2,7 @@
 layout: post
 title:  "transpose matrix"
 date:   2018-07-12 18:23:00 +0700
+category: clojure
 tags:   clojure transpose matrix
 ---
 

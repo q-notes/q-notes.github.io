@@ -1,7 +1,8 @@
 ---
 layout: post
-title:  "reload a multimethod in Clojure REPL"
+title:  "reload a multimethod in REPL"
 date:   2018-06-28 23:30:00 +0700
+category: clojure
 tags:   clojure multimethod repl
 ---
 

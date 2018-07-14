@@ -2,6 +2,7 @@
 layout: post
 title:  "compose vs. reduce"
 date:   2018-07-13 12:55:00 +0700
+category: red
 tags:   red rebol compose reduce
 ---
 

@@ -1,7 +1,8 @@
 ---
 layout: post
-title:  "Clojure data structures"
+title:  "data structures"
 date:   2018-07-03 21:55:00 +0700
+category: clojure
 tags:   clojure datatypes
 ---
 
