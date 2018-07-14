@@ -3,7 +3,7 @@ layout: post
 title:  "learning Rebol/Red"
 date:   2018-07-02 13:14:00 +0700
 category: red
-tags:   learning rebol red
+tags:   learning red
 ---
 
 - [REBOL/Core Users Guide](http://www.rebol.com/docs/core23/rebolcore.html)

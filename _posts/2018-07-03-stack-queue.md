@@ -2,7 +2,7 @@
 layout: post
 title:  "stack & queue"
 date:   2018-07-03 21:51:00 +0700
-tags:   algorithms stack queue clojure java rebol red
+tags:   algorithms stack queue clojure java red
 ---
 
 ### Stack

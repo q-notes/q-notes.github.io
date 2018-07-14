@@ -2,7 +2,7 @@
 layout: post
 title:  "console input & output"
 date:   2018-07-12 17:20:00 +0700
-tags:   red rebol clojure ruby console cli command-line-args
+tags:   red clojure ruby console cli command-line-args
 ---
 
 |   | Clojure | Red | Ruby |

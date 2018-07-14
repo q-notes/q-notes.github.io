@@ -3,7 +3,7 @@ layout: post
 title:  "datatypes"
 date:   2018-07-03 21:23:00 +0700
 category: red
-tags:   red rebol datatypes
+tags:   red datatypes
 ---
 
 > Expression of information is not just about structure. It's not just about name-value pairs. It's also about the datatypes as values and the ability to handle and manipulate those too.
