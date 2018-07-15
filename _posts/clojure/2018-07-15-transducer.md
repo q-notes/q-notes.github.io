@@ -24,7 +24,7 @@ tags:     clojure transducer
 ;; how to use
 ; https://clojure.org/reference/transducers
 ; https://www.astrecipes.net/blog/2016/11/24/transducers-how-to/
-; https://tech.grammarly.com/blog/building-etl-pipelines-with-clojure
+; https://dev.to/greencoder/build-your-own-transducer-and-impress-your-cat---part-1-mhp
 
 (filter odd?) ;; returns a transducer that filters odd
 (map inc)     ;; returns a mapping transducer for incrementing

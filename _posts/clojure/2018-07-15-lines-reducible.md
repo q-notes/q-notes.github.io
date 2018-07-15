@@ -6,7 +6,7 @@ category: clojure
 tags:     clojure transducer file
 ---
 
-read text file line by line, split the line whenever there is a ';'
+read text file line by line, split the line whenever there is a `;`
 
 `/tmp/work.txt`
 ```
@@ -54,3 +54,6 @@ Next;line;please
 When using line-seq:
 - you will create intermediate aggregates and have more garbage collection as a result.
 - Also you will have to take care of closing the reader yourself (often accomplished with with-open).
+
+Ref
+- [building-etl-pipelines-with-clojure](https://tech.grammarly.com/blog/building-etl-pipelines-with-clojure)
