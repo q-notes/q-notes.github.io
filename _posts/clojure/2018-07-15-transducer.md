@@ -23,6 +23,8 @@ tags:     clojure transducer
 
 ;; how to use
 ; https://clojure.org/reference/transducers
+; https://www.astrecipes.net/blog/2016/11/24/transducers-how-to/
+; https://tech.grammarly.com/blog/building-etl-pipelines-with-clojure
 
 (filter odd?) ;; returns a transducer that filters odd
 (map inc)     ;; returns a mapping transducer for incrementing
@@ -68,4 +70,8 @@ tags:     clojure transducer
 
 ;; creating transducers
 
+
+;; with core.async
+; https://eli.thegreenplace.net/2017/reducers-transducers-and-coreasync-in-clojure/
+; https://malcolmsparks.com/posts/transducers.html
 ```
