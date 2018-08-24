@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "load ns on repl"
-date:     2018-07-15 11:23:00 +0700
+date:     2018-08-24 23:05:00 +0700
 category: clojure
 tags:     clojure repl ns
 ---
