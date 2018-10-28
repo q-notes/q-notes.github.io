@@ -60,7 +60,7 @@ Add last, remove first impl:
 + Java
 
 ```java
-LinkedList<Integer> q = new LinkedList<>();
+Queue<Integer> q = new LinkedList<>();
 
 q.addLast(1); // q=[1]
 q.addLast(2); // q=[1, 2]
