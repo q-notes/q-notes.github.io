@@ -1,8 +1,9 @@
 ---
-layout: post
-title:  "tmux/screen"
-date:   2018-06-22 15:19:00 +0700
-tags:   linux tmux screen
+layout:   post
+title:    "tmux/screen"
+date:     2018-06-22 15:19:00 +0700
+category: linux
+tags:     linux tmux screen
 ---
 
 |                | tmux                         | screen |
