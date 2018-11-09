@@ -1,8 +1,9 @@
 ---
 layout: post
-title:  "supervisord"
+title:  supervisord
 date:   2018-06-28 11:54:00 +0700
-tags:   devops supervisord
+category: linux
+tags:   linux devops supervisord
 ---
 
 + Reloading configuration changes
