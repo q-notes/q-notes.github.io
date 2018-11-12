@@ -69,6 +69,21 @@ tags:     clojure transducer
 
 ;; creating transducers
 ; https://dev.to/greencoder/build-your-own-transducer-and-impress-your-cat---part-1-mhp
+(fn [xf]
+  (fn ([] ...)                ; init
+      ([result] ...)          ; completion
+      ([result input] ...)))  ; step
+
+(def inc-transducer
+  (fn [rf]
+    (fn ([] (rf))                                   ; 0-arity aka 'the useless'
+        ([result] (rf result))                      ; 1-arity aka 'the flusher'
+        ([result input] (rf result (inc input)))))) ; 2-arity aka 'the doer'
+
+(into [] inc-transducer (list 4 5 6))
+; => [5 6 7]
+; idiomatic way:
+; (into [] (map inc) (list 4 5 6))
 
 
 ;; with core.async
