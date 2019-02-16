@@ -12,15 +12,15 @@ tags:   clojure datatypes
 
 ### Atomic Data Types
 - `nil`
+- Booleans `true false`
+- Symbols `fred`
+- Keywords `:fred`
 - Numbers
   + Longs
   + Ratios `22/7`
   + BigInt, BigDecimal
 - Strings `"fred"`
 - Characters `\a \b \c`
-- Symbols `fred`
-- Keywords `:fred`
-- Booleans `true false`
 - Regex patterns `#"a*b"`
 
 ### Data Structures
