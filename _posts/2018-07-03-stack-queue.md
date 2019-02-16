@@ -2,7 +2,7 @@
 layout: post
 title:  "stack & queue"
 date:   2018-07-03 21:51:00 +0700
-tags:   algorithms stack queue clojure java red
+tags:   algorithms stack queue clojure java red janet
 ---
 
 ### Stack
@@ -40,6 +40,15 @@ st.peek(); //=> 2, st=[1, 2]
 (peek st)   ;=> 1
 (pop st)    ;=> (2 3)
 (conj st 4) ;=> (4 1 2 3)
+```
+
+- Janet Array
+
+```clj
+(def arr @[1 2 3])
+(array/peek arr)   #=> 3, arr: @[1 2 3]
+(array/pop arr)    #=> 3, arr: @[1 2]
+(array/push arr 4) #=> @[1 2 4]
 ```
 
 - Red/Rebol3
