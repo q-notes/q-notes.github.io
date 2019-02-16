@@ -12,8 +12,8 @@ tags:   janet datatypes
 - Symbols `fred`
 - Keywords `:fred`
 - Numbers `0 12 -65912 4.98 1.3e18`
-- Strings `"fred"`
-- Buffers (mutable data structures) `@"Buffer."` `@``Another buffer```
+- Strings `"fred"` ` ``long string`` `
+- Buffers (mutable data structures) `@"Buffer."` ` @``Another buffer`` `
 
 ### Data Structures
 - Tuples `(1 2 3) [1 2 3]`
