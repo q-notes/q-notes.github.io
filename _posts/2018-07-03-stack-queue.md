@@ -91,6 +91,7 @@ q.peek(); //=> 2, q=[2, 3]
 ```
 
 - Janet Array
+
 Add at first, remove from last:
 ```clj
 (def arr @[1 2 3])
