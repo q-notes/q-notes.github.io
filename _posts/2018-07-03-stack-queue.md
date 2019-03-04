@@ -90,6 +90,15 @@ q.peek(); //=> 2, q=[2, 3]
 (conj q 4) ;=> <-(1 2 3 4)-<
 ```
 
+- Janet Array
+Add at first, remove from last:
+```clj
+(def arr @[1 2 3])
+(array/peek arr)       #=> 3, arr: @[1 2 3]
+(array/pop arr)        #=> 3, arr: @[1 2]
+(array/insert arr 0 4) #=> @[4 1 2]
+```
+
 - Red/Rebol3
 
 ```red
