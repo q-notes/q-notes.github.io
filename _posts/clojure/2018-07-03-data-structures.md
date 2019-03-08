@@ -10,7 +10,7 @@ tags:   clojure datatypes
 
 -Alan Perlis
 
-### Atomic Data Types
+### Data Types
 - `nil`
 - Booleans `true false`
 - Symbols `fred`

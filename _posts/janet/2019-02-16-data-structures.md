@@ -6,7 +6,7 @@ category: janet
 tags:   janet datatypes
 ---
 
-### Atomic Data Types
+### Data Types
 - `nil`
 - Booleans `true false`
 - Symbols `fred`
