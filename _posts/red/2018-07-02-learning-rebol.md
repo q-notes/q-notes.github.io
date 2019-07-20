@@ -7,7 +7,7 @@ tags:   learning red
 ---
 
 - [REBOL/Core Users Guide](http://www.rebol.com/docs/core23/rebolcore.html)
-  + [A walkthrough with Red](https://github.com/red/red/wiki/REBOL-Core-Users-Guide-__-A-walkthrough-with-Red)
+  + [A walkthrough with Red](https://github.com/red/red/wiki/%5BDOC%5D-REBOL-Core-Users-Guide-__-A-walkthrough-with-Red)
 
 - [REBOL 3 concepts](http://www.rebol.com/r3/docs/concepts.html)
 
