@@ -37,8 +37,8 @@ If this is done a lot, a large number of temporary series are generated, which t
 
 An optimizing refinement in `reduce` and `compose`:
 ```red
-reduce/into [a b c] tail series
-compose/into [a (b) c] tail series
+reduce/into [a b c] series
+compose/into [a (b) c] series
 ```
 
 These require no intermediate storage.
