@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Duration parser"
+title:  "duration parser"
 date:   2019-12-11 17:21:00 +0700
 tags:   java time date duration
 ---
