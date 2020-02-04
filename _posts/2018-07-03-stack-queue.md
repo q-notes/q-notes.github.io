@@ -42,26 +42,6 @@ st.peek(); //=> 2, st=[1, 2]
 (conj st 4) ;=> (4 1 2 3)
 ```
 
-- Janet Array
-
-```clj
-(def arr @[1 2 3])
-(array/peek arr)   #=> 3, arr: @[1 2 3]
-(array/pop arr)    #=> 3, arr: @[1 2]
-(array/push arr 4) #=> @[1 2 4]
-```
-
-- Red/Rebol3
-
-```red
-data: make block! 10
-append data 1  ;== [1]
-append data 2  ;== [1 2]
-append data 3  ;== [1 2 3]
-take/last data ;== 3
-data           ;== [1 2]
-```
-
 ### Queue
 
 Add last, remove first impl:
@@ -88,25 +68,4 @@ q.peek(); //=> 2, q=[2, 3]
 (peek q)   ;=> 1
 (pop q)    ;=> <-(2 3)-<
 (conj q 4) ;=> <-(1 2 3 4)-<
-```
-
-- Janet Array
-
-Add at first, remove from last:
-```clj
-(def arr @[1 2 3])
-(array/peek arr)       #=> 3, arr: @[1 2 3]
-(array/pop arr)        #=> 3, arr: @[1 2]
-(array/insert arr 0 4) #=> @[4 1 2]
-```
-
-- Red/Rebol3
-
-```red
-data: make block! 10
-append data 1 ;== [1]
-append data 2 ;== [1 2]
-append data 3 ;== [1 2 3]
-take data     ;== 1
-data          ;== [2 3]
 ```
