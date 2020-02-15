@@ -20,10 +20,743 @@ fn main() {
 
 # Data Types
 
-- Scalar Types
-  + Integer `2`
-  + Float `2.0`
-  + Boolean `true` `false`
-  + Character `'z'`
+* Scalar Types
+  - Integer: `2`
+  - Float: `2.0`
+  - Boolean: `true` `false`
+  - Character: `'z'`
   
-- Compound Types  
+* Compound Types
+  - Tuple: `(500, 6.4, 1)`
+      + fixed length
+      + variety of types
+
+  - Array: `[1, 2, 3, 4, 5]`
+      + fixed length
+      + same type
+
+---
+
+# Functions
+
+```rs
+fn plus_one(x: i32) -> i32 {
+    x + 1
+}
+```
+
+---
+
+# Control Flow
+
+- if
+
+```rs
+    let n = 5;
+
+    if n < 0 {
+        print!("{} is negative", n);
+    } else if n > 0 {
+        print!("{} is positive", n);
+    } else {
+        print!("{} is zero", n);
+    }
+```
+
+- loop
+
+```rs
+    loop {
+        println!("again!");
+    }
+```
+
+---
+
+# Control Flow
+
+- while
+
+```rs
+    let mut number = 3;
+
+    while number != 0 {
+        println!("{}!", number);
+
+        number -= 1;
+    }
+```
+
+- for
+
+```rs
+    let a = [10, 20, 30, 40, 50];
+
+    for element in a.iter() {
+        println!("the value is: {}", element);
+    }
+```
+
+---
+
+# Ownership
+
+```rs
+let s1 = String::from("hello");
+let s2 = s1;
+
+println!("{}, world!", s1); //ERROR: borrow of moved value: `s1`
+```
+
+```rs
+fn main() {
+    let s = String::from("hello");  // s comes into scope
+
+    takes_ownership(s);             // s's value moves into the function...
+                                    // ... and so is no longer valid here
+
+    println!("{}", s);              //ERROR: borrow of moved value: `s`
+}
+
+fn takes_ownership(some_string: String) {
+    println!("{}", some_string);
+}
+```
+
+---
+
+# References and Borrowing
+
+- References
+
+```rs
+fn main() {
+    let s1 = String::from("hello");
+    let len = calculate_length(&s1);
+    println!("The length of '{}' is {}.", s1, len);
+}
+
+fn calculate_length(s: &String) -> usize {
+    s.len()
+}
+```
+
+- Mutable References
+
+```rs
+fn main() {
+    let mut s = String::from("hello");
+    change(&mut s);
+    println!("{}", s); //=> hello, world
+}
+
+fn change(some_string: &mut String) {
+    some_string.push_str(", world");
+}
+```
+
+---
+
+# Slice Type
+
+- String Slices
+  + &str
+  + reference to part of a String
+
+```rs
+let s = String::from("hello world");
+
+let hello = &s[0..5];
+let world = &s[6..11];
+
+let my_string_literal = "hello world"; //type &str, an immutable reference.
+```
+
+- Array Slices
+
+```rs
+let a = [1, 2, 3, 4, 5];
+
+let slice = &a[1..3]; //type &[i32]
+```
+
+---
+
+# Structs
+
+```rs
+struct User {
+    username: String,
+    email: String,
+    sign_in_count: u64,
+    active: bool,
+}
+
+let mut user1 = User {
+    email: String::from("someone@example.com"),
+    username: String::from("someusername123"),
+    active: true,
+    sign_in_count: 1,
+};
+
+user1.email = String::from("anotheremail@example.com");
+```
+
+---
+
+# Methods
+
+```rs
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+
+    // associated function
+    fn square(size: u32) -> Rectangle {
+        Rectangle { width: size, height: size }
+    }
+}
+
+fn main() {
+    let rect1 = Rectangle { width: 30, height: 50 };
+
+    println!(
+        "The area of the rectangle is {} square pixels.",
+        rect1.area()
+    );
+
+    let sq = Rectangle::square(3);
+}
+```
+
+---
+
+# Traits
+
+```rs
+trait Summary {
+    fn summarize(&self) -> String;
+}
+
+struct NewsArticle {
+    headline: String,
+    location: String,
+    author: String,
+    content: String,
+}
+
+impl Summary for NewsArticle {
+    fn summarize(&self) -> String {
+        format!("{}, by {} ({})", self.headline, self.author, self.location)
+    }
+}
+
+// Traits as Parameters
+fn notify(item: impl Summary) {
+    println!("Breaking news! {}", item.summarize());
+}
+```
+
+---
+
+# Enums
+
+```rs
+enum IpAddrKind {
+    V4,
+    V6,
+}
+
+let four = IpAddrKind::V4;
+```
+
+```rs
+enum IpAddr {
+    V4(u8, u8, u8, u8),
+    V6(String),
+}
+
+let home = IpAddr::V4(127, 0, 0, 1);
+
+let loopback = IpAddr::V6(String::from("::1"));
+```
+
+---
+
+# Option Enum
+
+```rs
+enum Option<T> {
+    Some(T),
+    None,
+}
+
+let some_number = Some(5);
+let some_string = Some("a string");
+
+let absent_number: Option<i32> = None;
+```
+
+Matching with `Option<T>`
+
+```rs
+fn plus_one(x: Option<i32>) -> Option<i32> {
+    match x {
+        None => None,
+        Some(i) => Some(i + 1),
+    }
+}
+
+let five = Some(5);
+let six = plus_one(five);
+let none = plus_one(None);
+```
+
+---
+
+# Generic Types
+
+- In Function
+
+```rs
+fn largest<T>(list: &[T]) -> T {
+```
+
+- In Struct
+
+```rs
+struct Point<T> {
+    x: T,
+    y: T,
+}
+
+impl<T> Point<T> {
+    fn x(&self) -> &T {
+        &self.x
+    }
+}
+```
+
+- In Enum
+
+```rs
+enum Result<T, E> {
+    Ok(T),
+    Err(E),
+}
+```
+
+---
+
+# Collections
+- Vectors
+- Strings
+- Hash Maps
+
+---
+
+# Vectors
+
+- Creating
+
+```rs
+let v: Vec<i32> = Vec::new();
+
+let v = vec![1, 2, 3];
+```
+
+- Updating
+
+```rs
+let mut v = Vec::new();
+
+v.push(5);
+v.push(6);
+v.push(7);
+v.push(8);
+```
+
+---
+
+# Vectors
+
+- Reading
+
+```rs
+let v = vec![1, 2, 3, 4, 5];
+
+let third: &i32 = &v[2];
+println!("The third element is {}", third);
+
+match v.get(2) {
+    Some(third) => println!("The third element is {}", third),
+    None => println!("There is no third element."),
+}
+```
+
+- Iterating
+
+```rs
+let v = vec![100, 32, 57];
+for i in &v {
+    println!("{}", i);
+}
+
+let mut v = vec![100, 32, 57];
+for i in &mut v {
+    *i += 50;
+}
+```
+
+---
+
+# Strings
+
+- Creating
+
+```rs
+let mut s = String::new();
+
+let s = "initial contents".to_string();
+
+let s = String::from("initial contents");
+```
+
+- Updating
+
+```rs
+let mut s = String::from("foo");
+s.push_str("bar");
+```
+
+- Concatenation
+
+```rs
+let s1 = String::from("Hello, ");
+let s2 = String::from("world!");
+let s3 = s1 + &s2; // note s1 has been moved here and can no longer be used
+```
+
+---
+
+# Strings
+
+- Indexing
+  + String's indexed by Bytes instead of Characters.
+  + Rust doesn’t allow us to index into a String to get a character.
+  + We can use Slice Strings to specific bytes ranges:
+
+```rs
+let hello = "Здравствуйте";
+
+let s = &hello[0..4]; //4 first bytes -> Зд
+```
+
+- Iterating
+
+```rs
+for c in "नमस्ते".chars() {
+    println!("{}", c);
+}
+```
+
+---
+
+# Hash Maps
+
+- Creating
+
+```rs
+use std::collections::HashMap;
+
+let mut scores = HashMap::new();
+
+scores.insert(String::from("Blue"), 10);
+
+// insert if have no value
+scores.entry(String::from("Yellow")).or_insert(50);
+scores.entry(String::from("Blue")).or_insert(50);
+```
+
+- Accessing
+
+```rs
+let team_name = String::from("Blue");
+let score = scores.get(&team_name); //returns an Option<&V>
+```
+
+- Iterating
+
+```rs
+for (key, value) in &scores {
+    println!("{}: {}", key, value);
+}
+```
+
+---
+
+# Hash Maps
+
+- Hash Maps and Ownership
+
+```rs
+use std::collections::HashMap;
+
+let field_name = String::from("Favorite color");
+let field_value = String::from("Blue");
+
+let mut map = HashMap::new();
+map.insert(field_name, field_value); // hash map will be the owner of those values
+
+println!("{}", field_name); //ERROR: borrow of moved value: `field_name`
+```
+
+---
+
+# Modules
+
+```rs
+mod front_of_house {
+    pub mod hosting {
+        pub fn add_to_waitlist() {}
+    }
+}
+
+use front_of_house::hosting;
+
+pub fn eat_at_restaurant() {
+    hosting::add_to_waitlist();
+}
+```
+
+---
+
+# Separating Modules into Different Files
+
+- `src/lib.rs`
+
+```rs
+mod front_of_house;
+
+use front_of_house::hosting;
+
+pub fn eat_at_restaurant() {
+    hosting::add_to_waitlist();
+}
+```
+
+- `src/front_of_house.rs`
+
+```rs
+pub mod hosting;
+```
+
+- `src/front_of_house/hosting.rs`
+
+```rs
+pub fn add_to_waitlist() {}
+```
+
+---
+
+# Errors
+
+- Unrecoverable Errors with `panic!`
+
+```rs
+fn main() {
+    panic!("crash and burn");
+}
+```
+
+- Recoverable Errors with `Result`
+
+```rs
+enum Result<T, E> {
+    Ok(T),
+    Err(E),
+}
+```
+
+---
+
+# Errors
+
+```rs
+use std::fs::File;
+
+fn main() {
+    let f = File::open("hello.txt"); // return a Result
+
+    let f = match f {
+        Ok(file) => file,
+        Err(error) => {
+            panic!("Problem opening the file: {:?}", error)
+        },
+    };
+}
+```
+
+```rs
+use std::fs::File;
+
+fn main() {
+    let f = File::open("hello.txt").unwrap_or_else(|error| {
+        panic!("Problem opening the file: {:?}", error);
+    });
+
+    // call panic! if error
+    let f = File::open("hello.txt").unwrap(); 
+
+    // call panic! with input message
+    let f = File::open("hello.txt").expect("Failed to open hello.txt");
+}
+```
+
+---
+
+# Propagating Errors
+
+The `?` placed after a `Result` value:
+
++ If the value of the `Result` is an `Ok`, the value inside the `Ok` will get returned from this expression, and the program will continue.
+
++ If the value is an `Err`, the `Err` will be returned from the whole function.
+
++ the `?` operator can only be used in a function that returns
+`Result` or `Option`.
+
+```rs
+use std::io;
+use std::io::Read;
+use std::fs::File;
+
+fn read_username_from_file() -> Result<String, io::Error> {
+    let mut s = String::new();
+
+    File::open("hello.txt")?.read_to_string(&mut s)?;
+
+    Ok(s)
+}
+```
+
+---
+
+# Closures
+
+```rs
+fn main() {
+    // Increment via closures and functions.
+    fn  function            (i: i32) -> i32 { i + 1 }
+
+    // Closures are anonymous
+    let closure_annotated = |i: i32| -> i32 { i + 1 };
+    let closure_inferred  = |i     |          i + 1  ;
+
+    let i = 1;
+    // Call the function and closures.
+    println!("function: {}", function(i));
+    println!("closure_annotated: {}", closure_annotated(i));
+    println!("closure_inferred: {}", closure_inferred(i));
+
+    // A closure taking no arguments which returns an `i32`.
+    // The return type is inferred.
+    let one = || 1;
+    println!("closure returning one: {}", one());
+}
+```
+
+---
+
+# Closures capture variables
+
+```rs
+fn main() {
+    let mut count = 0;
+    
+    let mut inc = || {
+        count += 1;
+        println!("`count`: {}", count);
+    };
+
+    inc(); // 1
+    inc(); // 2
+}
+```
+
+---
+
+# Closures as input parameters
+
+- `Fn`: the closure captures by reference (`&T`)
+- `FnMut`: the closure captures by mutable reference (`&mut T`)
+- `FnOnce`: the closure captures by value (`T`)
+
+```rs
+// A function which takes a closure and returns an `i32`.
+fn apply_to_3<F>(f: F) -> i32 where F: Fn(i32) -> i32 {
+    f(3)
+}
+
+fn main() {
+    // `double` satisfies `apply_to_3`'s trait bound
+    let double = |x| 2 * x;
+
+    println!("3 doubled: {}", apply_to_3(double)); // 6
+}
+```
+
+---
+
+# Closures as output parameters
+
+```rs
+fn create_fn() -> impl Fn() {
+    let text = "Fn".to_owned();
+
+    move || println!("This is a: {}", text)
+}
+
+fn create_fnmut() -> impl FnMut() {
+    let text = "FnMut".to_owned();
+
+    move || println!("This is a: {}", text)
+}
+
+fn create_fnonce() -> impl FnOnce() {
+    let text = "FnOnce".to_owned();
+
+    move || println!("This is a: {}", text)
+}
+
+fn main() {
+    let fn_plain = create_fn();
+    let mut fn_mut = create_fnmut();
+    let fn_once = create_fnonce();
+
+    fn_plain(); // This is a: Fn
+    fn_mut();   // This is a: FnMut
+    fn_once();  // This is a: FnOnce
+}
+```
+
+---
+
+# Higher Order Functions
+
+```rs
+fn main() {
+    let sum_of_squared_odd_numbers: u32 =
+        (0..).map(|n| n * n)                             // All natural numbers squared
+             .take_while(|&n_squared| n_squared < upper) // Below upper limit
+             .filter(|&n_squared| is_odd(n_squared))     // That are odd
+             .fold(0, |acc, n_squared| acc + n_squared); // Sum them
+    println!("functional style: {}", sum_of_squared_odd_numbers);
+}
+```
