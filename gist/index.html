@@ -28,9 +28,9 @@ class: center, middle
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
     </script>
     <script>
-      var path = window.location.pathname.split('/');
-      if(path.length>2){
-        $.get('https://gist.githubusercontent.com/quan-nh/' + path[2] + "/raw", function(data){
+      var gist = window.location.search.substring(1); 
+      if(gist){
+        $.get('https://gist.githubusercontent.com/quan-nh/' + gist + "/raw", function(data){
           $('#source').html(data)
           remark.create();
         });
