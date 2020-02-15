@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Title</title>
+    <title>q-notes</title>
     <meta charset="utf-8">
     <style>
       @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
@@ -21,25 +21,19 @@
 
 class: center, middle
 
-# Title
-
----
-
-# Agenda
-
-1. Introduction
-2. Deep-dive
-3. ...
-
----
-
-# Introduction
+# q-notes 
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
     </script>
     <script>
-      var slideshow = remark.create();
+      var path = window.location.pathname.split('/');
+      if(path.length>2){
+        $.get('https://gist.githubusercontent.com/quan-nh/' + path[2] + "/raw", function(data){
+          $('#source').html(data)
+          remark.create();
+        });
+      }
     </script>
   </body>
 </html>
