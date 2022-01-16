@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "bash script for getting a Google Oauth2 access token"
+title:  "Bash script for getting a Google Oauth2 access token"
 date:   2018-06-22 16:08:00 +0700
 tags:   oauth2 google cli
 ---
