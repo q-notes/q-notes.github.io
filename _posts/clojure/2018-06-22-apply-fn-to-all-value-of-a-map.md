@@ -3,8 +3,12 @@ layout: post
 title:  "apply fn to all value of a map"
 date:   2018-06-22 14:30:00 +0700
 category: clojure
-tags:   clojure specter
+tags:   clojure specter map
 ---
+
+*note: Clojure 1.11 now has new function: `(update-vals m f)` and `(update-keys m f)`.
+
+https://clojure.github.io/clojure/branch-master/clojure.core-api.html#clojure.core/update-vals
 
 ```clj
 (into {} (for [[k v] m]
