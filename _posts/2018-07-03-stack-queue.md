@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "stack & queue"
+title:  "Stack & Queue"
 date:   2018-07-03 21:51:00 +0700
-tags:   algorithms stack queue clojure java red janet
+tags:   algorithm stack queue clojure java
 ---
 
 ### Stack
@@ -20,6 +20,12 @@ st.pop(); //=> 3, st=[1, 2]
 
 // returns the element on the top of the stack, but does not remove it
 st.peek(); //=> 2, st=[1, 2]
+
+// better impl
+Deque<String> myStack = new ArrayDeque<>();
+myStack.push("I am the 1st element."); // equivalent to addFirst
+myStack.peek(); // retrieves, but does not remove, equivalent to peekFirst().
+myStack.pop(); // equivalent to removeFirst().
 ```
 
 - Clojure Vector

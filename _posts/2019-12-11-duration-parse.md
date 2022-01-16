@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "duration parser"
+title:  "Java Duration Parser"
 date:   2019-12-11 17:21:00 +0700
-tags:   java time date duration
+tags:   java time
 ---
 
-support [ISO-8601 duration format P<date>T<time>](https://en.wikipedia.org/wiki/ISO_8601#Durations)
+[java.time.Duration/parse](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html#parse-java.lang.CharSequence-) function obtains a Duration from a text string in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) duration format: `P<date>T<time>`
 
  Examples:
 
