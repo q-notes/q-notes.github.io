@@ -11,13 +11,15 @@ Pedestal calls the `:enter` function on the way "in" to handling a request.
 It calls the `:leave` function on the way back "out".
 This is shown here for a single interceptor:
 
-![](http://pedestal.io/images/guides/interceptors.png)
+![]({{ "/assets/interceptors.png" | absolute_url }})
 
 All the `:enter` functions are called in order.
 Each one receives the context map and returns a (possibly modified) context map.
 Once all the interceptors have been called, the resulting context map gets passed through the interceptors' `:leave` functions, but in reverse order, as shown here:
 
-![](http://pedestal.io/images/guides/interceptor-stack.png)
+![]({{ "/assets/interceptor-stack.png" | absolute_url }})
+
+### Example
 
 ```clojure
 (require '[exoscale.interceptor :as interceptor])
@@ -56,30 +58,29 @@ As such, the `:leave` functions are called in reverse order to the `:enter` func
 
 Suppose we start with three interceptors in the queue, like this:
 
-![](http://pedestal.io/images/guides/what-is-an-interceptor/interceptor-queue-and-stack-in-context-1.png)
+![]({{ "/assets/interceptor-queue-and-stack-in-context-1.png" | absolute_url }})
 
 Pedestal needs to call the `:enter` function on "Intc 1".
 So it pops that interceptor from the queue and moves it to the stack.
 Then it calls the interceptor, passing the context map itself.
 This is the context as it appears to "Intc 1":
 
-![](http://pedestal.io/images/guides/what-is-an-interceptor/interceptor-queue-and-stack-in-context-2.png)
+![]({{ "/assets/interceptor-queue-and-stack-in-context-2.png" | absolute_url }})
 
 When that’s done, the next thing is to call "Intc 2".
 Same thing happens, Pedestal pops that interceptor from the queue and pushes it on the stack:
 
-![](http://pedestal.io/images/guides/what-is-an-interceptor/interceptor-queue-and-stack-in-context-3.png)
+![]({{ "/assets/interceptor-queue-and-stack-in-context-3.png" | absolute_url }})
 
 Repeat the process for "Intc 3" and we’re left with this context map:
 
-![](http://pedestal.io/images/guides/what-is-an-interceptor/interceptor-queue-and-stack-in-context-4.png)
+![]({{ "/assets/interceptor-queue-and-stack-in-context-4.png" | absolute_url }})
 
 
 ## Manipulating the Queue
 
 Both the queue and the stack reside in the context map.
-Since interceptors can modify the context map, that means they can change the plan of execution for the rest of the request!
-
+Since interceptors can modify the context map, that means they can change the plan of execution for the rest of the request.
 Interceptors are allowed to `enqueue` more interceptors to be called, or they can `terminate` the request.
 
 An example where we dynamically decide which interceptor to add, depending on a query parameter:
@@ -146,7 +147,8 @@ The main difference is that an error-handling interceptor may indicate that the 
 
 ; in case we got NumberFormatException on interceptor-B
 ; interceptor-C is not executed
-; :error on intercepter-B is executed & return a context map. So next :leave on interceptor-A is call.
+; :error on intercepter-B is executed & return a context map.
+; So next :leave on interceptor-A is call.
 (interceptor/execute {:a 0 :b "x" :c 0}
                      [interceptor-A
                       interceptor-B
@@ -161,7 +163,8 @@ The main difference is that an error-handling interceptor may indicate that the 
 
 ; in case we got ClassCastException on interceptor-B
 ; interceptor-C is not executed
-; :error on intercepter-B is executed & add ::error to context map. So next :error on interceptor-A is call instead of :leave
+; :error on intercepter-B is executed & add ::error to context map.
+; So next :error on interceptor-A is call instead of :leave
 (interceptor/execute {:a 0 :b 0 :c 0}
                      [interceptor-A
                       interceptor-B
